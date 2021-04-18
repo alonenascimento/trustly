@@ -1,0 +1,28 @@
+{
+  "name": "trusly",
+  "version": "1.0.0",
+  "description": "Trustly Technical Challenge - Full-Stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alonenascimento/trusly.git"
+  },
+  "keywords": [
+    "trusly"
+  ],
+  "author": "Alone Nascimento",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alonenascimento/trusly/issues"
+  },
+  "homepage": "https://github.com/alonenascimento/trusly#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "*",
+    "express": "^4.17.1",
+    "retry": "^0.12.0"
+  }
+}

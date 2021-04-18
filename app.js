@@ -164,42 +164,13 @@ const readFiles = async (html) => {
 
 
 
-
-/*
-const server = http.createServer(function (req, res) {
-  var url = "https://github.com/axios/axios";
-  
-  (async function() {
-
-
-    console.log("Start");
-    
-    await getFolder(url);
-
-    console.log("Result:");
-    console.log(rec);
-    console.log("End");
-
-   
-
-  })();
-  
-
-})
-*/
-
-
-async function start(url){
+async function inicio(url){
 
     // console.log("Start");
     
     await getFolder(url);
 
     return rec;
-
-    console.log("Result:");
-    console.log(rec);
-    console.log("End");
   
 }
 
@@ -211,11 +182,10 @@ app.get('/', (req, res) => {
 // GET 
 app.get('/get', async function (req, res) {
   
-  const result = await start(req.query.url);
+  const result = await inicio(req.query.url);
 
   res.json(result);
-  // rec = null;
-  // res.send(result) ;
+
 });
 
 // POST

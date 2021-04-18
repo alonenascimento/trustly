@@ -207,6 +207,17 @@ app.get('/get', async function (req, res) {
 
 });
 
+// GET 
+app.get('/vai',function (req, res) {
+  
+  // const result = await inicio(req.query.url);
+
+  // res.json(result);
+
+  res.send("olá");
+
+});
+
 // POST
 app.post('/get', function (req, res) {
   res.send('POST request to the homepage');

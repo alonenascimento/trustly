@@ -14,8 +14,8 @@ let interval1 = null;
 let interval2 = null;
 
 
-let getFileAttributeAttempt = {attempt:3,axiosCancelToken:null,param:{}};
-let getFolderAttempt        = {attempt:3,axiosCancelToken:null,param:{}};
+let getFileAttributeAttempt = {attempt:5,axiosCancelToken:null,param:{}};
+let getFolderAttempt        = {attempt:5,axiosCancelToken:null,param:{}};
 
 
 
@@ -185,7 +185,8 @@ const readFiles = async (html) => {
 async function inicio(url){
 
     // console.log("Start");
-    
+    getFileAttributeAttempt.attempt=5;
+    getFolderAttempt.attempt=5;
     await getFolder(url);
 
     return rec;

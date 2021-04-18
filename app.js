@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+// const port = 3000;
 
 let axios = require('axios');
 let cheerio = require('cheerio');
@@ -223,7 +223,12 @@ app.post('/get', function (req, res) {
   res.send('POST request to the homepage');
 });
 
-
+/*
 app.listen(port, () => {
   console.log(`listening at http://localhost:${port}`)
+});
+*/
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });

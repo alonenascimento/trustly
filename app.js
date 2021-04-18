@@ -137,7 +137,7 @@ const readFiles = async (html) => {
 
     type = ar.eq(index).find("[aria-label]").attr("aria-label")
 
-    name = ar.eq(index).find("div:eq(1)").text().trim();
+    name = ar.eq(index).find("div").eq(1).text().trim();
 
     switch(type){
       case 'File':

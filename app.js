@@ -56,14 +56,15 @@ const getFileAttribute = async url => {
       
 
       // console.log(e);
-      console.log("Waiting to try again");
+      getFileAttributeAttempt.attempt--;
+      console.log("Waiting to try again "+getFileAttributeAttempt.attempt);
 
       getFileAttributeAttempt.axiosCancelToken.cancel();
 
       clearTimeout(interval1);
 
-      getFileAttributeAttempt.attempt--;
-      if(getFileAttributeAttempt.attempt<0){
+      
+      if(getFileAttributeAttempt.attempt<=0){
         console.log("max attempt request reached");
         return false;
       }
@@ -101,14 +102,14 @@ const getFolder = async url => {
 
     } catch (e) {
       // console.log(e);
-      
-      console.log("Waiting to try again");
+      getFolderAttempt.attempt--;
+      console.log("Waiting to try again "+getFolderAttempt.attempt);
       getFolderAttempt.axiosCancelToken.cancel();
       clearTimeout(interval2);
 
-
-      getFolderAttempt.attempt--;
-      if(getFolderAttempt.attempt<0){
+      
+      
+      if(getFolderAttempt.attempt<=0){
         console.log("max attempt request reached");
         return false;
       }

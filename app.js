@@ -24,7 +24,7 @@ const getFileAttribute = async url => {
 
       console.log("Reaching file's attributes at " +url);
 
-      getFileAttributeAttempt.attempt=3;
+      
       getFileAttributeAttempt.param.url=url;
       getFileAttributeAttempt.axiosCancelToken = axios.CancelToken.source();
 
@@ -48,6 +48,7 @@ const getFileAttribute = async url => {
           break;
       }
 
+      getFileAttributeAttempt.attempt=3;
 
       return {lines:parseInt(m[linesIndex-1].trim()),bytes:bytes}
 
@@ -60,6 +61,13 @@ const getFileAttribute = async url => {
       getFileAttributeAttempt.axiosCancelToken.cancel();
 
       clearTimeout(interval1);
+
+      getFileAttributeAttempt.attempt--;
+      if(getFileAttributeAttempt.attempt<0){
+        console.log("max attempt request reached");
+        return false;
+      }
+        
 
       interval1 = setTimeout(async () => {
         
@@ -80,14 +88,14 @@ const getFolder = async url => {
     try {
       console.log('Reading directory at '+url);
 
-
-      getFolderAttempt.attempt=3;
       getFolderAttempt.param.url=url;
       getFolderAttempt.axiosCancelToken = axios.CancelToken.source();
 
       res = await axios.get(url);
 
       const html = res.data;
+
+      getFolderAttempt.attempt=3;
 
       await readFiles(html);
 
@@ -97,6 +105,15 @@ const getFolder = async url => {
       console.log("Waiting to try again");
       getFolderAttempt.axiosCancelToken.cancel();
       clearTimeout(interval2);
+
+
+      getFolderAttempt.attempt--;
+      if(getFolderAttempt.attempt<0){
+        console.log("max attempt request reached");
+        return false;
+      }
+
+
       interval2 = setTimeout(async () => {
         console.log("...retrying...");
         

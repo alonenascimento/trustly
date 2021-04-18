@@ -48,7 +48,7 @@ const getFileAttribute = async url => {
           break;
       }
 
-      getFileAttributeAttempt.attempt=3;
+      // getFileAttributeAttempt.attempt=3;
 
       return {lines:parseInt(m[linesIndex-1].trim()),bytes:bytes}
 
@@ -96,7 +96,7 @@ const getFolder = async url => {
 
       const html = res.data;
 
-      getFolderAttempt.attempt=3;
+      // getFolderAttempt.attempt=3;
 
       await readFiles(html);
 

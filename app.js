@@ -185,6 +185,7 @@ async function inicio(url){
     getFolderAttempt.attempt=5;
     await getFolder(url);
 
+    console.log(rec)
     return rec;
   
 }
@@ -195,9 +196,9 @@ app.get('/', (req, res) => {
 });
 
 // GET 
-app.get('/get', async function (req, res) {
+app.get('/get', function (req, res) {
   
-  const result = await inicio(req.query.url);
+  const result = inicio(req.query.url);
 
   res.json(result);
 

@@ -54,7 +54,7 @@ const getFileAttribute = async url => {
 
     } catch (e) {
     
-      console.log(e);
+      // console.log(e);
       getFileAttributeAttempt.attempt--;
       console.log("Waiting to try again "+getFileAttributeAttempt.attempt);
 
@@ -100,7 +100,7 @@ const getFolder = async url => {
       await readFiles(html);
 
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       getFolderAttempt.attempt--;
       console.log("Waiting to try again "+getFolderAttempt.attempt);
       getFolderAttempt.axiosCancelToken.cancel();

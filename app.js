@@ -53,9 +53,8 @@ const getFileAttribute = async url => {
       return {lines:parseInt(m[linesIndex-1].trim()),bytes:bytes}
 
     } catch (e) {
-      
-
-      // console.log(e);
+    
+      console.log(e);
       getFileAttributeAttempt.attempt--;
       console.log("Waiting to try again "+getFileAttributeAttempt.attempt);
 
@@ -101,12 +100,11 @@ const getFolder = async url => {
       await readFiles(html);
 
     } catch (e) {
-      // console.log(e);
+      console.log(e);
       getFolderAttempt.attempt--;
       console.log("Waiting to try again "+getFolderAttempt.attempt);
       getFolderAttempt.axiosCancelToken.cancel();
       clearTimeout(interval2);
-
       
       
       if(getFolderAttempt.attempt<=0){
@@ -172,9 +170,7 @@ const readFiles = async (html) => {
     case 'Directory':
       await getFolder("https://github.com"+ar.eq(index).find("a").attr("href"));
       break;
-  
     }
-
 
   }
 
@@ -204,17 +200,6 @@ app.get('/get', async function (req, res) {
   const result = await inicio(req.query.url);
 
   res.json(result);
-
-});
-
-// GET 
-app.get('/vai',function (req, res) {
-  
-  // const result = await inicio(req.query.url);
-
-  // res.json(result);
-
-  res.send("olá");
 
 });
 

@@ -210,23 +210,19 @@ app.post('/get', function (req, res) {
 });
 
 
-var Queue = require('bull');
+const myFirstQueue = new Bull('my-first-queue');
+
 
 
 // TESTE
 app.get('/teste', function (req, res) {
   
 
-
-  const myFirstQueue = Queue('my-first-queue');
-
   myFirstQueue.process(async (job) => {
-    const result = await inicio(req.query.url);
-    return result;
+    console.log(job);
+    return job.data;
   });
   
-
-  // res.json(result);
 
 });
 

@@ -208,9 +208,9 @@ app.get('/get', function (req, res) {
 app.post('/get', function (req, res) {
   res.send('POST request to the homepage');
 });
+Queue = require('bull');
 
-
-const myFirstQueue = new Bull('my-first-queue');
+const myFirstQueue = new Queue('my-first-queue');
 
 
 

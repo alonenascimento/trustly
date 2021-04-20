@@ -22,6 +22,7 @@
   "homepage": "https://github.com/alonenascimento/trusly#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "bull": "^3.22.1",
     "cheerio": "*",
     "express": "^4.17.1",
     "node": "^8.17.0"

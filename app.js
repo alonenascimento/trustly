@@ -209,6 +209,29 @@ app.post('/get', function (req, res) {
   res.send('POST request to the homepage');
 });
 
+
+var Queue = require('bull');
+
+
+// TESTE
+app.get('/teste', function (req, res) {
+  
+
+
+  const myFirstQueue = Queue('my-first-queue');
+
+  myFirstQueue.process(async (job) => {
+    const result = await inicio(req.query.url);
+    return result;
+  });
+  
+
+  // res.json(result);
+
+});
+
+
+
 /*
 app.listen(port, () => {
   console.log(`listening at http://localhost:${port}`)
